@@ -1,5 +1,6 @@
 package com.project.tests;
 
+import com.project.utils.ConfigReader;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -11,8 +12,7 @@ public class LoginTest extends baseTest {
 	 @Test
 	    public void validLoginTest() {
 	        LoginPage loginPage = new LoginPage();
-	        loginPage.login("Admin", "admin123");
-
+	        loginPage.login(ConfigReader.getUsername(), ConfigReader.getPassword());
 	        System.out.println("Login executed");
 	        Assert.assertTrue(true);
 	    }	
