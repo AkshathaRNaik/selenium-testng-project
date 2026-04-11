@@ -1,0 +1,128 @@
+****Selenium WebDriver architecture*
+🔄 How It Works (Flow)
+You write a Selenium script
+WebDriver converts it into a request
+Request is sent via HTTP to the browser driver
+Browser driver executes it in the browser
+Response is sent back to your script
+
+📊 Architecture Diagram (Conceptual)
+Test Script
+↓
+WebDriver API (Language Binding)
+↓
+W3C WebDriver Protocol (HTTP/JSON)
+↓
+Browser Driver (ChromeDriver / GeckoDriver)
+↓
+Browser (Chrome / Firefox / Edge)
+
+🧩 Key Components
+1. Test Script (Client)
+   Written in languages like Java, Python, C#, JavaScript
+   Uses Selenium WebDriver APIs
+2. WebDriver (Language Binding)
+      Acts as a bridge between your test script and the browser driver
+      Converts your code into JSON requests using the W3C WebDriver Protocol
+3. WebDriver Protocol (W3C Standard)
+      A standardized way for communication
+      Uses HTTP requests (REST API)
+Example:
+POST /session
+GET /url
+4. Browser Driver
+   Specific to each browser:
+   Chrome → ChromeDriver
+   Receives commands and interacts with the browser
+5. Browser
+   Executes the actual actions:
+   Open URL
+   Click buttons
+   Fill forms
+
+**********Selenium WebDriver Hierarchy (Java)*************
+SearchContext (interface)
+   ↑
+WebDriver (interface)
+   ↑
+RemoteWebDriver (class)
+   ↑
+Browser-specific drivers
+   ├── ChromeDriver
+   ├── FirefoxDriver
+   ├── EdgeDriver
+   └── SafariDriver
+
+🔹 1. SearchContext (Top-level interface)
+Root of the hierarchy
+Defines methods to find elements:
+findElement()
+findElements()
+
+👉 Both WebDriver and WebElement inherit from this.
+🔹 2. WebDriver (interface)
+Main Selenium interface
+Extends SearchContext
+Key responsibilities:
+Open/close browser
+Navigate pages
+Manage windows, timeouts, cookies
+Important methods:
+get()
+navigate()
+manage()
+switchTo()
+quit()
+
+🔹 3. RemoteWebDriver (class)
+Implements WebDriver
+Core class that actually executes commands
+Why it's important:
+Used for Selenium Grid
+Communicates with browser via JSON Wire Protocol / W3C protocol
+
+🔹 4. Browser-specific Drivers
+
+These extend RemoteWebDriver:
+
+ChromeDriver
+FirefoxDriver
+EdgeDriver
+SafariDriver
+
+👉 Each driver knows how to control its specific browser.
+
+🔹 5. WebElement (interface)
+Represents elements on a webpage
+Also extends SearchContext
+Common methods:
+click()
+sendKeys()
+getText()
+getAttribute()
+
+🧠 Visual Representation
+SearchContext (interface)
+   ↑
+WebDriver (interface)
+   ↑
+RemoteWebDriver (class)
+   ├── Implements:
+   │      ├── JavascriptExecutor
+   │      ├── TakesScreenshot
+   │      ├── HasCapabilities
+   │      ├── Interactive
+   │      └── PrintsPage
+   ↑
+Browser-specific drivers
+   ├── ChromeDriver
+   ├── FirefoxDriver
+   ├── EdgeDriver
+   └── SafariDriver
+
+WebElement hierarchy
+   SearchContext (interface)
+      ↑
+   WebElement (interface)
+      ↑
+   RemoteWebElement (class)

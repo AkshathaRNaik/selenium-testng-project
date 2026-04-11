@@ -1,0 +1,54 @@
+The openConnection() method returns a generic URLConnection object.
+ To access HTTP-specific methods like setRequestMethod and getResponseCode,
+  we cast it to HttpURLConnection, since HTTP connections support those features.
+
+  import org.openqa.selenium.*;
+  import org.openqa.selenium.chrome.ChromeDriver;
+  import java.net.HttpURLConnection;
+  import java.net.URL;
+  import java.util.List;
+
+  public class BrokenLinksTest {
+      public static void main(String[] args) throws Exception {
+
+          WebDriver driver = new ChromeDriver();
+          driver.get("https://example.com");
+
+          // Step 1: Get all links
+          List<WebElement> links = driver.findElements(By.tagName("a"));
+
+          for(WebElement link : links) {
+
+              String url = link.getAttribute("href");
+
+              if(url == null || url.isEmpty()) {
+                  System.out.println("URL is empty");
+                  continue;
+              }
+
+              try {
+                  // Step 2: Create connection
+                  URL linkUrl = new URL(url);
+                  HttpURLConnection conn = (HttpURLConnection) linkUrl.openConnection();
+
+                  conn.setRequestMethod("HEAD");
+                  conn.connect();
+
+                  // Step 3: Get response code
+                  int responseCode = conn.getResponseCode();
+
+                  // Step 4: Validate
+                  if(responseCode >= 400) {
+                      System.out.println(url + " → Broken Link (" + responseCode + ")");
+                  } else {
+                      System.out.println(url + " → Valid Link (" + responseCode + ")");
+                  }
+
+              } catch(Exception e) {
+                  System.out.println(url + " → Error");
+              }
+          }
+
+          driver.quit();
+      }
+  }

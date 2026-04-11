@@ -1,0 +1,3 @@
+Testng Attributes
+priority, description, enabled, groups, dependsOnMethods, dependsOnGroups, timeOut, invocationCount,
+invocationTimeOut, threadPoolSize, dataProvider, dataProviderClass, expectedExceptions, alwaysRun
