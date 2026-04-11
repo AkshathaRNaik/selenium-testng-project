@@ -11,13 +11,14 @@ import com.project.driver.DriverManager;
 
 public class baseTest {
 
-    WebDriver driver = DriverManager.getdriver();
+   public WebDriver driver = DriverManager.getdriver();
 
     @BeforeMethod
     public void setup() {
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-        driver.get(ConfigReader.getAmazonUrl());
+//        driver.get(ConfigReader.getAmazonUrl());
+        driver.get(ConfigReader.getUrl());
     }
 
     @AfterMethod

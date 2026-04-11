@@ -12,7 +12,6 @@ public class ConfigReader {
         try {
             System.out.println(System.getProperty("user.dir"));
             FileInputStream fileInputStream = new FileInputStream(System.getProperty("user.dir") + "/src/test/resources/config/config.properties");
-            System.out.println("after fileinputstream");
             properties = new Properties();
             properties.load(fileInputStream);
         } catch (FileNotFoundException e) {
@@ -33,4 +32,10 @@ public class ConfigReader {
     public static String getAmazonUrl() {
         return properties.getProperty("AmazonUrl");
     }
+
+    public static String getUrl() {
+        return properties.getProperty("Url");
+    }
+
+
 }

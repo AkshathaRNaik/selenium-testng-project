@@ -1,5 +1,6 @@
 package com.project.tests;
 
+import com.project.pages.AmazonDashboardPage;
 import com.project.utils.ConfigReader;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -19,6 +20,11 @@ public class LoginTest extends baseTest {
 
     @Test
     public void amazonlaunch() {
-        System.out.println("amazon page launched");
+        System.out.println("amazon dashboard page launched");
+        AmazonDashboardPage amazonDashboardPage = new AmazonDashboardPage();
+//        amazonDashboardPage.getSearchData();
+//        System.out.println("search function successful");
+        amazonDashboardPage.getLinks();
+        System.out.println("links fetched");
     }
 }

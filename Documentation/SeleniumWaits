@@ -1,0 +1,91 @@
+"Explicit wait has a default polling time of 500 milliseconds,
+implicit wait does not have a defined polling interval,
+and fluent wait allows custom polling."
+
+1️⃣ Implicit Wait
+
+👉 Applies globally to all elements
+
+driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+🔍 How it works:
+Selenium waits up to 10 seconds
+If element is found earlier → continues immediately
+✅ Use Case:
+Basic synchronization
+⚠️ Disadvantage:
+Applies to all elements (not flexible)
+
+2️⃣ Explicit Wait (Most Important ⭐)
+
+👉 Waits for a specific condition
+WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+WebElement element = wait.until(
+    ExpectedConditions.visibilityOfElementLocated(By.id("login"))
+);
+🔸 Common Conditions
+1. Element Visible
+wait.until(ExpectedConditions.visibilityOf(element));
+2. Element Clickable
+wait.until(ExpectedConditions.elementToBeClickable(By.id("btn")));
+3. Element Present
+wait.until(ExpectedConditions.    (By.id("field")));
+✅ Use Case:
+Dynamic elements
+Buttons, popups, loaders
+
+3️⃣ Fluent Wait (Advanced)
+
+👉 Like explicit wait but with more control
+
+Wait<WebDriver> wait = new FluentWait<>(driver)
+    .withTimeout(Duration.ofSeconds(10))
+    .pollingEvery(Duration.ofSeconds(2))
+    .ignoring(NoSuchElementException.class);
+
+WebElement element = wait.until(
+    driver -> driver.findElement(By.id("login"))
+);
+🔍 Features:
+Custom polling time
+Ignore specific exceptions
+
+🔹 Real-Time Example
+WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+// Wait until button is clickable
+WebElement btn = wait.until(
+    ExpectedConditions.elementToBeClickable(By.id("submit"))
+);
+btn.click();
+
+In Selenium, polling time means:
+👉 “How frequently Selenium checks for the element or condition”
+
+🔹 1. Implicit Wait – Default Polling Time
+👉 Polling interval is not officially defined (internal)
+
+Selenium internally keeps checking for the element
+It continuously tries until timeout is reached
+👉 You can say in interview:
+"Implicit wait keeps polling the DOM continuously until the element is found or timeout occurs."
+
+🔹 2. Explicit Wait – Default Polling Time
+
+👉 Default polling interval is:
+
+⏱️ 500 milliseconds (0.5 seconds)
+WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+👉 Internally:
+
+Checks condition every 500 ms
+Stops when condition is satisfied or timeout reached
+
+🔹 3. Fluent Wait – Custom Polling
+👉 You can define your own polling time:
+
+Wait<WebDriver> wait = new FluentWait<>(driver)
+    .withTimeout(Duration.ofSeconds(10))
+    .pollingEvery(Duration.ofSeconds(2));
+
+👉 Here:
+Checks every 2 seconds

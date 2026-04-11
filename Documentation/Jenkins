@@ -1,0 +1,4 @@
+Run command to start jenkins server : java -jar jenkins.war
+Jenkins url : http://localhost:8080/
+jenkins administrator url location : b0fe5f23e9db49b39aa815e6901ad302
+username : AkshathaNaik
