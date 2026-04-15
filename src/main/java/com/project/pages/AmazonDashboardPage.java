@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AmazonDashboardPage {
-    WebDriver driver = DriverManager.getdriver();
+    WebDriver driver = DriverManager.getDriver();
 
     private static By searchBox = By.xpath("//input[@id='twotabsearchtextbox']");
     private static By searchText = By.xpath("//input[@id='twotabsearchtextbox']//following::div[text()='samsung']");

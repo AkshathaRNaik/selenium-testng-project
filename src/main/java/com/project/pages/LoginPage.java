@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import com.project.driver.DriverManager;
 
 public class LoginPage {
-	WebDriver driver = DriverManager.getdriver();
+	WebDriver driver = DriverManager.getDriver();
 
 	 private By username = By.name("username");
 	    private By password = By.name("password");

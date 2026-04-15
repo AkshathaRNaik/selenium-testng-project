@@ -7,29 +7,65 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 public class DriverManager {
 
-	public static WebDriver driver;
+//	public static WebDriver driver;
+//
+//	public static WebDriver initDriver() {
+//		WebDriverManager.chromedriver().setup();
+    /// /        ChromeOptions options = new ChromeOptions();
+    /// /        options.addArguments("--headless");
+    /// /		driver = new ChromeDriver(options);
+//        driver = new ChromeDriver();
+//		driver.manage().window().maximize();
+//		return driver;
+//	}
+//
+//	public static WebDriver getDriver() {
+//		if (driver == null) {
+//			initDriver();
+//		}
+//		return driver;
+//	}
+//
+//	public static void quitDriver() {
+//		if (driver != null) {
+//			driver.quit();
+//		}
+//
+//	}
 
-	public static WebDriver initDriver() {
-		WebDriverManager.chromedriver().setup();
-//        ChromeOptions options = new ChromeOptions();
-//        options.addArguments("--headless");
-//		driver = new ChromeDriver(options);
-        driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		return driver;
-	}
+    private static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
+    public static WebDriver driver;
 
-	public static WebDriver getdriver() {
-		if (driver == null) {
-			initDriver();
-		}
-		return driver;
-	}
+    public static void initDriver(String browser) {
 
-	public static void quitDriver() {
-		if (driver != null) {
-			driver.quit();
-		}
+        switch (browser.toLowerCase()) {
+            case "chrome":
+                WebDriverManager.chromedriver().setup();
+                driver = new ChromeDriver();
+                break;
+            case "edge":
+                WebDriverManager.edgedriver().setup();
+                driver = new ChromeDriver();
+                break;
+            case "firefox":
+                WebDriverManager.firefoxdriver().setup();
+                driver = new ChromeDriver();
+                break;
+            default:
+                throw new RuntimeException("no supported browser");
+        }
+        driver.manage().window().maximize();
+        tlDriver.set(driver);
+    }
 
-	}
+    public static WebDriver getDriver() {
+        return tlDriver.get();
+    }
+
+    public static void quitDriver() {
+        if (tlDriver.get() != null) {
+            tlDriver.get().quit();
+            tlDriver.remove();
+        }
+    }
 }
