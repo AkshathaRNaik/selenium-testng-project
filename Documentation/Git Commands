@@ -1,0 +1,67 @@
+Git commands
+
+git init
+git status
+git add .
+
+  git config --global user.email "akshathanaik543@gmail.com"
+  git config --global user.name "Akshatha Naik"
+
+git config --global --list
+git commit -m "Initial commit - Selenium TestNG framework"
+
+git remote add origin https://github.com/AkshathaRNaik/selenium-testng-project.git
+git branch  --> list all the branches
+git branch -M main
+
+git push -u origin main
+git checkout -b QA
+git branch dev  --> create branch
+git checkout main  --> switch branch
+git pull origin main
+git push -u origin QA = > What -u does Sets upstream tracking
+Next time you can just use:git push
+
+Complete Git workflow after setup
+git status => on which branch ,Changes to be committed, Changes not staged for commit, Untracked files
+git add => git add is used to move changes from your working directory to the staging area.
+git add Documentation src pom.xml Readme.md => Adds only the mentioned files/folders to staging
+git add . => This is a bulk add command . Adds ALL changes in current directory:New/Modified/Deleted files
+git commit =>git commit saves your staged changes permanently into the Git repository.
+git commit -m "added login testcase" => -m stands for message
+👉 It allows you to write a commit message directly in the command line
+git push =>git push is used to upload your committed changes from your local repository to a remote repository (like GitHub).
+git push origin QA  =>Push my local main branch to the remote repository named origin . Used When branch is already linked to remote
+git push → Upload changes , origin → Remote repository name , QA → Branch name
+git push -u origin QA  => Push the branch AND set it as upstream (default tracking branch)
+-u = set-upstream
+✔ First time pushing a branvh : git push -u origin QA
+✔ After that: git push
+👉 git push -u origin main = Push + set default branch
+👉 git push origin main = Just push
+
+🔄 Git Workflow
+Working Directory  →  Staging Area  →  Repository
+     (edit files)        (git add)        (git commit)
+🔄 Full Git Flow
+Working → Staging → Local Repo → Remote Repo
+(edit)     (add)     (commit)      (push)
+
+Step	        Command	        Where it happens
+Edit code	    —	                Working directory
+Stage	        git add	            Staging area
+Save	        git commit	        Local repo
+Upload	        git push	        Remote repo
+
+-> git status
+-> git add Documentation src pom.xml Readme.md
+-> git commit -m "Added documentation, source code and java programs"
+-> git push origin QA
+-> git add Documentation/Jenkins
+-> git commit --amend --no-edit
+-> git push origin QA --force
+-> Create Pull request and merge to Main branch in Github
+-> git branch
+-> git checkout main
+-> git pull origin main
+-> git checkout QA

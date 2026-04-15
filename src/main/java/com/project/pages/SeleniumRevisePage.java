@@ -18,7 +18,7 @@ import java.util.Set;
 
 public class SeleniumRevisePage {
 
-    WebDriver driver = DriverManager.getdriver();
+    WebDriver driver = DriverManager.getDriver();
     private static WebElement dropdown;
     private By selectDropdown = By.id("oldSelectMenu");
     private By multiDropdownButton = By.id("react-select-4-input");
