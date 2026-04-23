@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class DriverManager {
 
@@ -34,10 +36,10 @@ public class DriverManager {
 //	}
 
     private static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
-    public static WebDriver driver;
+//    public static WebDriver driver;
 
     public static void initDriver(String browser) {
-
+        WebDriver driver = null;
         switch (browser.toLowerCase()) {
             case "chrome":
                 WebDriverManager.chromedriver().setup();
@@ -45,11 +47,11 @@ public class DriverManager {
                 break;
             case "edge":
                 WebDriverManager.edgedriver().setup();
-                driver = new ChromeDriver();
+                driver = new EdgeDriver();
                 break;
             case "firefox":
                 WebDriverManager.firefoxdriver().setup();
-                driver = new ChromeDriver();
+                driver = new FirefoxDriver();
                 break;
             default:
                 throw new RuntimeException("no supported browser");

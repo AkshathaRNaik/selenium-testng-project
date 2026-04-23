@@ -20,8 +20,7 @@ public class baseTest {
         DriverManager.initDriver(browserName);
         driver = DriverManager.getDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-        driver.get(ConfigReader.getAmazonUrl());
-//        driver.get(ConfigReader.getUrl());
+        driver.get(ConfigReader.getValue("AmazonUrl"));
     }
 
     @AfterMethod

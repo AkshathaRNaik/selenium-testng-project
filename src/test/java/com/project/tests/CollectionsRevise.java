@@ -48,15 +48,5 @@ public class CollectionsRevise {
         System.out.println("arrayList : " + arrayList);
     }
 
-    static void linkedListPractice() {
 
-    }
-
-    static void hashSetPractice() {
-
-    }
-
-    static void linkedHashsetPractice() {
-
-    }
 }

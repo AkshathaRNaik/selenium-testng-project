@@ -41,17 +41,31 @@ GET /url
    Fill forms
 
 **********Selenium WebDriver Hierarchy (Java)*************
+🧠 Visual Representation
 SearchContext (interface)
    ↑
 WebDriver (interface)
    ↑
 RemoteWebDriver (class)
+   ├── Implements:
+   │      ├── JavascriptExecutor
+   │      ├── TakesScreenshot
+   │      ├── HasCapabilities
+   │      ├── Interactive
+   │      └── PrintsPage
    ↑
 Browser-specific drivers
    ├── ChromeDriver
    ├── FirefoxDriver
    ├── EdgeDriver
    └── SafariDriver
+
+WebElement hierarchy
+   SearchContext (interface)
+      ↑
+   WebElement (interface)
+      ↑
+   RemoteWebElement (class)
 
 🔹 1. SearchContext (Top-level interface)
 Root of the hierarchy
@@ -101,28 +115,3 @@ sendKeys()
 getText()
 getAttribute()
 
-🧠 Visual Representation
-SearchContext (interface)
-   ↑
-WebDriver (interface)
-   ↑
-RemoteWebDriver (class)
-   ├── Implements:
-   │      ├── JavascriptExecutor
-   │      ├── TakesScreenshot
-   │      ├── HasCapabilities
-   │      ├── Interactive
-   │      └── PrintsPage
-   ↑
-Browser-specific drivers
-   ├── ChromeDriver
-   ├── FirefoxDriver
-   ├── EdgeDriver
-   └── SafariDriver
-
-WebElement hierarchy
-   SearchContext (interface)
-      ↑
-   WebElement (interface)
-      ↑
-   RemoteWebElement (class)

@@ -3,7 +3,7 @@ package com.project.JavaPrograms;
 import java.util.HashMap;
 
 public class CharacterCount {
-    static void main() {
+    public static void main(String[] args) {
         characterCountHashmap("Akshatha Naik");
     }
 

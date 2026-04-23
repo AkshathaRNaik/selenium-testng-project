@@ -65,3 +65,16 @@ Upload	        git push	        Remote repo
 -> git checkout main
 -> git pull origin main
 -> git checkout QA
+
+To add new project to Github repo
+--> Create new repo in Github
+--> git init
+--> git status
+--> git add .
+--> git commit -m "first commit selenium cucumber BDD"
+--> git branch -M main  -->rename current branch(master) to main overrides
+--> git remote add origin https://github.com/AkshathaRNaik/Selenium-Cucumber-BDD.git
+--> git push -u origin main
+--> git branch branchname  --> Create new branch
+--> git checkout branchname --> switch branch
+--> git checkout -b branchname --> create a new branch AND switch to it immediately
