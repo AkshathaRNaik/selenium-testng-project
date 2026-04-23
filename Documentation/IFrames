@@ -1,0 +1,30 @@
+An iframe is an HTML element used to embed another webpage inside the current webpage.
+
+🔹 Simple definition
+An iframe lets you load a completely separate HTML document within a section of your page.
+
+🔹 Syntax
+<iframe src="https://example.com"></iframe>
+
+🔹 Real-time example
+Think of:
+You’re on a website
+Inside it, you see a YouTube video, Google Map, or payment page
+
+Those are usually loaded using an iframe.
+🔹 Why iframe is used
+Embed videos (YouTube)
+Show maps (Google Maps)
+Load ads or external content
+Integrate third-party pages (payment gateways, chat widgets)
+👉 Selenium cannot directly interact with elements inside iframe
+👉 You must switch to iframe first
+
+🔹 Types of switching in Selenium
+driver.switchTo().frame(index);          // by index
+driver.switchTo().frame("nameOrId");     // by name/id
+driver.switchTo().frame(WebElement);     // by WebElement
+driver.switchTo().defaultContent(); or  driver.switchTo().parentFrame(); // come back to main page
+
+If you don’t switch to iframe:
+👉 You will get NoSuchElementException

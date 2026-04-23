@@ -1,8 +1,8 @@
 package com.project.JavaPrograms;
 
 public class FirstNonRepeatingCharacter {
-    static void main() {
-        firstNonRepeatingCharacter("aabbcc");
+    public static void main(String[] args) {
+        firstNonRepeatingCharacter("aabbdcce");
     }
 
     //i/p:swiss , o/p :w , i/p : aabbcde , //o/p:c
