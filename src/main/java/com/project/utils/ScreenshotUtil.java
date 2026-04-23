@@ -12,11 +12,19 @@ import java.nio.file.Files;
 
 public class ScreenshotUtil {
 
-    WebDriver driver = DriverManager.getDriver();
-    public void takeScreenshot(String testName) throws IOException {
+
+    public String takeScreenshot(String testName) throws IOException {
+        WebDriver driver = DriverManager.getDriver();
+        if (driver == null) {
+            System.out.println("Driver is null, skipping screenshot");
+            return null;
+        }
         TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
         File src = takesScreenshot.getScreenshotAs(OutputType.FILE);
-        File dest = new File(System.getProperty("user.dir") + "/Screenshots/" + testName +"_" +TimeUtil.getTimestamp()+ ".png");
-        Files.copy(src.toPath(),dest.toPath());
+        String path = System.getProperty("user.dir") + "/Screenshots/" + testName + "_" + TimeUtil.getTimestamp() + ".png";
+        File dest = new File(path);
+        FileUtils.copyFile(src,dest);
+//        Files.copy(src.toPath(), dest.toPath());
+        return path;
     }
 }

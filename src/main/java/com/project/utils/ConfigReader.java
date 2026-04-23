@@ -10,7 +10,6 @@ public class ConfigReader {
 
     static {
         try {
-            System.out.println(System.getProperty("user.dir"));
             FileInputStream fileInputStream = new FileInputStream(System.getProperty("user.dir") + "/src/test/resources/config/config.properties");
             properties = new Properties();
             properties.load(fileInputStream);
@@ -20,22 +19,8 @@ public class ConfigReader {
             System.out.println("IO Exception");
         }
     }
-
-    public static String getUsername() {
-        return properties.getProperty("Username");
+    public static String getValue(String key) {
+        return properties.getProperty(key);
     }
-
-    public static String getPassword() {
-        return properties.getProperty("Password");
-    }
-
-    public static String getAmazonUrl() {
-        return properties.getProperty("AmazonUrl");
-    }
-
-    public static String getUrl() {
-        return properties.getProperty("Url");
-    }
-
 
 }

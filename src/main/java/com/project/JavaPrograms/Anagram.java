@@ -3,7 +3,7 @@ package com.project.JavaPrograms;
 import java.util.Arrays;
 
 public class Anagram {
-    static void main() {
+    public static void main(String[] args) {
         anagramCheck("listen", "silent");
     }
 

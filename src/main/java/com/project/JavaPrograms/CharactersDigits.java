@@ -2,7 +2,7 @@ package com.project.JavaPrograms;
 
 public class CharactersDigits {
 
-    static void main() {
+    public static void main(String[] args) {
         charDigit("A23CD567GFI");
     }
 
@@ -13,7 +13,6 @@ public class CharactersDigits {
         for (char c : ch) {
             if (Character.isDigit(c)) {
                 digits = digits + c;
-
             } else {
                 characters = characters + c;
             }

@@ -1,15 +1,11 @@
 package com.project.tests;
 
-import com.project.base.baseTest;
 import com.project.utils.DataProviderTest;
-import com.project.utils.RetryAnalyzer;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.FileInputStream;
 
@@ -39,7 +35,7 @@ public class DataDrivenTesting {
         }
     }
 
-    @Test(dataProvider = "InterviewTest",  dataProviderClass = DataProviderTest.class, retryAnalyzer =RetryAnalyzer.class)
+    @Test(dataProvider = "InterviewTest",  dataProviderClass = DataProviderTest.class)
     public void dataProviderTesting(String username , String password){
         System.out.print(username + "  " + password);
         Assert.fail();

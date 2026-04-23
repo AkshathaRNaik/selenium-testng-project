@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class FirstDuplicateInArray {
-    static void main() {
+    public static void main(String[] args) {
         int[] a= {1,2,3,2,4};
         firstDuplicateInArray(a);
     }
