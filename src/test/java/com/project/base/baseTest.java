@@ -20,13 +20,13 @@ public class baseTest {
         DriverManager.initDriver(browserName);
         driver = DriverManager.getDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-        driver.get(ConfigReader.getValue("AmazonUrl"));
+//        driver.get(ConfigReader.getValue("AmazonUrl"));
+        driver.get(ConfigReader.getValue("IFrameUrl"));
     }
 
     @AfterMethod
     public void tearDown() {
        DriverManager.quitDriver();
-
     }
 
 }
