@@ -1,5 +1,8 @@
 Git commands
-
+ls --> returns all the files under path
+make sure you are on the right project path to use git commands
+Ex : PS D:\Projects> cd Selenium-Testng-TDD
+     PS D:\Projects\Selenium-Testng-TDD> git status
 git init
 git status
 git add .
