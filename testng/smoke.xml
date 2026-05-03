@@ -8,7 +8,7 @@
     <test name="Parallel execution chrome browser">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="com.project.tests.IFrameTest"/>
+            <class name="com.project.tests.FileUploadDownloadTest"/>
         </classes>
     </test>
     <!--    <test name="Parallel execution edge browser">-->
