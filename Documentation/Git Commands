@@ -81,3 +81,5 @@ To add new project to Github repo
 --> git branch branchname  --> Create new branch
 --> git checkout branchname --> switch branch
 --> git checkout -b branchname --> create a new branch AND switch to it immediately
+
+--> git restore --staged reports/ExtentReport.html => Unstage the file . This removes it from the staging area but keeps the file locally.

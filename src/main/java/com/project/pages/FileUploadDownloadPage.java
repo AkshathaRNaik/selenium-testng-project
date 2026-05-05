@@ -1,6 +1,7 @@
 package com.project.pages;
 
 import com.project.utils.ConfigReader;
+import com.project.utils.TimeUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -15,6 +16,7 @@ import java.time.Duration;
 
 public class FileUploadDownloadPage {
     WebDriver driver;
+    WebDriverWait webDriverWait;
 
     public FileUploadDownloadPage(WebDriver driver) {
         this.driver = driver;
@@ -24,7 +26,8 @@ public class FileUploadDownloadPage {
     By downloadFile = By.id("downloadButton");
 
     public void uploadFileSendkeys() throws InterruptedException {
-        driver.findElement(chooseFile).sendKeys(ConfigReader.getValue("UploadFilePath"));
+       WebElement uploadFile= TimeUtil.waitElementVisibility(driver , 10 , chooseFile);
+        uploadFile.sendKeys(ConfigReader.getValue("UploadFilePath"));
         Thread.sleep(5000);
         driver.findElement(downloadFile).click();
         Thread.sleep(3000);

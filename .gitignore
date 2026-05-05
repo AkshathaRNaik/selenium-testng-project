@@ -3,3 +3,5 @@ test-output/
 *.log
 Screenshots/
 .idea/
+# Extent Reports
+reports/
